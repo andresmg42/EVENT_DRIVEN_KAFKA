@@ -1,7 +1,12 @@
 #!/bin/bash
 
-# Point your shell to Minikube's Docker daemon
-# eval $(minikube docker-env)
+set -e  # stop on first error
+
+echo "Starting Minikube..."
+minikube start
+
+echo "Setting Docker environment for Minikube..."
+eval $(minikube -p minikube docker-env)
 
 # Build all images
 docker build -t order-service:latest ../order-service
