@@ -18,9 +18,6 @@ kubectl apply -f ./notification-service.yml
 
 
 
-# Wait for ingress to be ready
-kubectl wait --for=condition=ready pod -l app.kubernetes.io/component=controller -n ingress-nginx --timeout=120s
-
 # Wait for all services
 kubectl wait --for=condition=ready pod --all -n microservices --timeout=180s
 
