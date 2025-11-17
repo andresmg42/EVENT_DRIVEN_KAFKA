@@ -16,8 +16,7 @@ kubectl apply -f ./order-service.yml
 kubectl apply -f ./inventory-service.yml
 kubectl apply -f ./notification-service.yml
 
-# Apply ingress
-kubectl apply -f ./ingress.yml
+
 
 # Wait for ingress to be ready
 kubectl wait --for=condition=ready pod -l app.kubernetes.io/component=controller -n ingress-nginx --timeout=120s
